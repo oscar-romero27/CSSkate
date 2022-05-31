@@ -71,7 +71,7 @@ function getAllSkates()
                   ' . $prod->detalles . '<br>
                   <span class="text-warning">' . $prod->precio . ' €</span>
                 </p>
-                <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="carrito.php?id='.$prod->id_producto .'"><i class="fa-solid fa-cart-shopping"></i></a>
                
               </section>
             </section>
@@ -113,7 +113,7 @@ function getAllLongs()
                   ' . $prod->detalles . '<br>
                   <span class="text-warning">' . $prod->precio . ' €</span>
                 </p>
-                <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="carrito.php?id='.$prod->id_producto .'"><i class="fa-solid fa-cart-shopping"></i></a>
                
               </section>
             </section>
@@ -207,7 +207,7 @@ function getRelacionados()
 									' . $prod->detalles . '<br>
                                         <span class="text-warning">' . $prod->precio . ' €</span>
                                     </p>
-                                    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <a href="carrito.php?id='.$prod->id_producto .'"><i class="fa-solid fa-cart-shopping"></i></a>
 
                                 </section>
                             </section>
@@ -250,7 +250,7 @@ function buscarProductos($texto)
                   ' . $prod->detalles . '<br>
                   <span class="text-warning">' . $prod->precio . ' €</span>
                 </p>
-                <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="carrito.php?id='.$prod->id_producto .'"><i class="fa-solid fa-cart-shopping"></i></a>
                
               </section>
             </section>

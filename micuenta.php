@@ -2,7 +2,7 @@
 function getCompras($id_cliente)
 {
   include 'conexion.php';
-  $sentencia = "SELECT id_compra, nombre, detalles, precio, cantidad, fecha FROM `compra` INNER JOIN producto ON compra.id_producto = producto.id_producto WHERE id_cliente=" . $id_cliente;
+  $sentencia = "SELECT id_compra, nombre, detalles, precio, cantidad, fecha FROM `compra`  INNER JOIN producto ON compra.id_producto = producto.id_producto  WHERE id_cliente=" . $id_cliente." ORDER BY compra.fecha DESC";
   $resultado = $conexion->query($sentencia) or die("Error al comprobar usuario: " . mysqli_error($conexion));
 
   $count = mysqli_num_rows($resultado); //Numero de filas del resultado de la consulta
