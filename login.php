@@ -5,7 +5,7 @@
   <?php include "head.php"; ?>
 </head>
 
-<body>
+<body onload="setcanvas()">
 
 
   <?php include "navbar.php" ?>

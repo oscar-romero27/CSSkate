@@ -30,7 +30,6 @@
           </a>
         </li>
        <?php
-        session_start();
         
         if(isset($_SESSION['cliente'])){
           echo '

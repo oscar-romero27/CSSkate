@@ -6,11 +6,11 @@ function getAllProductos()
 {
 	include 'conexion.php';
 	$sentencia = "SELECT * FROM producto";
-	$resultado = $conexion->query($sentencia) or die("Error al comprobar usuario: " . mysqli_error($conexion));
+	$resultado = $conexion->query($sentencia) or die("Error al comprobar producto: " . mysqli_error($conexion));
 
-	$count = mysqli_num_rows($resultado); //Numero de filas del resultado de la consulta
+	$count = mysqli_num_rows($resultado); 
 
-	if ($count > 0) //si la variable count es mayor a 0
+	if ($count > 0) 
 	{
 		while ($prod = mysqli_fetch_object($resultado)) {
 
@@ -21,7 +21,7 @@ function getAllProductos()
                 <img
                   src="' . $prod->img . '"
                   class="rounded-circle mb-3 w-50"
-                  alt=""
+                  alt="' . $prod->nombre . '"
                 />
                 <a href="producto.php?id=' . $prod->id_producto . '">
                 <h3 class="card-title mb-3">' . $prod->nombre . '</h3>
@@ -48,11 +48,11 @@ function getAllSkates()
 {
 	include 'conexion.php';
 	$sentencia = "SELECT * FROM producto WHERE longboard=0";
-	$resultado = $conexion->query($sentencia) or die("Error al comprobar usuario: " . mysqli_error($conexion));
+	$resultado = $conexion->query($sentencia) or die("Error al comprobar producto: " . mysqli_error($conexion));
 
-	$count = mysqli_num_rows($resultado); //Numero de filas del resultado de la consulta
+	$count = mysqli_num_rows($resultado); 
 
-	if ($count > 0) //si la variable count es mayor a 0
+	if ($count > 0) 
 	{
 		while ($prod = mysqli_fetch_object($resultado)) {
 
@@ -63,7 +63,7 @@ function getAllSkates()
                 <img
                   src="' . $prod->img . '"
                   class="rounded-circle mb-3 w-50"
-                  alt=""
+                  alt="' . $prod->nombre . '"
                 />
                 <a href="producto.php?id=' . $prod->id_producto . '">
                 <h3 class="card-title mb-3">' . $prod->nombre . '</h3>
@@ -90,11 +90,11 @@ function getAllLongs()
 {
 	include 'conexion.php';
 	$sentencia = "SELECT * FROM producto WHERE longboard=1";
-	$resultado = $conexion->query($sentencia) or die("Error al comprobar usuario: " . mysqli_error($conexion));
+	$resultado = $conexion->query($sentencia) or die("Error al comprobar producto: " . mysqli_error($conexion));
 
-	$count = mysqli_num_rows($resultado); //Numero de filas del resultado de la consulta
+	$count = mysqli_num_rows($resultado); 
 
-	if ($count > 0) //si la variable count es mayor a 0
+	if ($count > 0) 
 	{
 		while ($prod = mysqli_fetch_object($resultado)) {
 
@@ -105,7 +105,7 @@ function getAllLongs()
                 <img
                   src="' . $prod->img . '"
                   class="rounded-circle mb-3 w-50"
-                  alt=""
+                  alt="' . $prod->nombre . '"
                 />
                 <a href="producto.php?id=' . $prod->id_producto . '">
                 <h3 class="card-title mb-3">' . $prod->nombre . '</h3>
@@ -132,16 +132,16 @@ function getProducto($idProd)
 {
 	include 'conexion.php';
 	$sentencia = "SELECT * FROM producto where id_producto=" . $idProd;
-	$resultado = $conexion->query($sentencia) or die("Error al comprobar usuario: " . mysqli_error($conexion));
+	$resultado = $conexion->query($sentencia) or die("Error al comprobar producto: " . mysqli_error($conexion));
 
-	$count = mysqli_num_rows($resultado); //Numero de filas del resultado de la consulta
+	$count = mysqli_num_rows($resultado); 
 
-	if ($count > 0) //si la variable count es mayor a 0
+	if ($count > 0) 
 	{
 		$prod = mysqli_fetch_object($resultado);
 
 		echo '
-			<img src="' . $prod->img . '" alt="" class="col-lg-5 img-thumbnail">
+			<img src="' . $prod->img . '" alt="' . $prod->nombre . '" class="col-lg-5 img-thumbnail">
             <section id="info-producto" class="col-lg-7 ">
                 <h1 id="nombre" class="mt-5 ms-3 text-black">' . $prod->nombre . '</h3>
                 <p id="precio" class="ms-3"><b>' . $prod->precio . '€</b></p>
@@ -183,15 +183,13 @@ function getProducto($idProd)
 function getRelacionados()
 {
 	include 'conexion.php';
-	$seed = rand();
-
 
 	$sentencia = "SELECT * FROM producto ORDER BY RAND() LIMIT 3";
-	$resultado = $conexion->query($sentencia) or die("Error al comprobar usuario: " . mysqli_error($conexion));
+	$resultado = $conexion->query($sentencia) or die("Error al comprobar producto: " . mysqli_error($conexion));
 
-	$count = mysqli_num_rows($resultado); //Numero de filas del resultado de la consulta
+	$count = mysqli_num_rows($resultado); 
 
-	if ($count > 0) //si la variable count es mayor a 0
+	if ($count > 0) 
 	{
 		while ($prod = mysqli_fetch_object($resultado)) {
 
@@ -199,7 +197,7 @@ function getRelacionados()
 			<section class="col-lg-4">
                             <section class="card bg-light">
                                 <section class="card-body text-center">
-                                    <img src="' . $prod->img . '" class="rounded-circle mb-3 w-50" alt="" />
+                                    <img src="' . $prod->img . '" class="rounded-circle mb-3 w-50" alt="' . $prod->nombre . '" />
                                     <a href="producto.php?id=' . $prod->id_producto . '">
                                         <h3 class="card-title mb-3">' . $prod->nombre . '</h3>
                                     </a>
@@ -227,11 +225,11 @@ function buscarProductos($texto)
 {
 	include 'conexion.php';
 	$sentencia = "SELECT * FROM producto WHERE nombre LIKE '%" . $texto . "%' OR detalles LIKE '%" . $texto . "%'";
-	$resultado = $conexion->query($sentencia) or die("Error al comprobar usuario: " . mysqli_error($conexion));
+	$resultado = $conexion->query($sentencia) or die("Error al comprobar producto: " . mysqli_error($conexion));
 
-	$count = mysqli_num_rows($resultado); //Numero de filas del resultado de la consulta
+	$count = mysqli_num_rows($resultado); 
 
-	if ($count > 0) //si la variable count es mayor a 0
+	if ($count > 0) 
 	{
 		while ($prod = mysqli_fetch_object($resultado)) {
 
@@ -242,7 +240,7 @@ function buscarProductos($texto)
                 <img
                   src="' . $prod->img . '"
                   class="rounded-circle mb-3 w-50"
-                  alt=""
+                  alt="' . $prod->nombre . '"
                 />
                 <a href="producto.php?id=' . $prod->id_producto . '">
                 <h3 class="card-title mb-3">' . $prod->nombre . '</h3>

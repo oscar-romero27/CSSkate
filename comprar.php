@@ -6,6 +6,11 @@ if (isset($_SESSION['cliente'])) {
 	$idProd = $_GET['id'];
 	$idUser = $_SESSION['cliente']->id_cliente;
 	comprarYa($idProd, $idUser);
+}else{
+	echo '<script>';
+		echo 'alert("Error de compra, inicia sesion antes de empezar a comprar");';
+		echo 'window.location.href="login.php";';
+		echo '</script>';
 }
 
 function comprarYa($idProd, $idUser)

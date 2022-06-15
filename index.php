@@ -1,13 +1,10 @@
 <!doctype html>
 <html lang="es">
-
-
-
 <head>
   <?php include "head.php"; ?>
 </head>
 
-<body>
+<body onload="setcanvas()">
 
   <?php include "navbar.php" ?>
   <?php include "buscador.php" ?>
@@ -16,10 +13,10 @@
     <!-- Contenido del inicio -->
     <section id="contenido-inicio">
       <section class="row">
-        <section class="col-md-12"><a href="#"><img src="img/skate-completos.jpg" class="img-fluid"></a></section>
+        <section class="col-md-12"><a href="productos.php"><img src="img/skate-completos.jpg" class="img-fluid"></a></section>
         <section class="col-md-12 p-0 jumbotron text-center bg-light bg-opacity-75">
 
-          <a id="enlace-jumbo" href="#">
+          <a id="enlace-jumbo" href="productos.php">
             <h1 class="display-3">Ofertas Semana Santa</h1>
           </a>
           <p class="lead">Dile hola a las vacaciones con un nuevo Skate.</p>
@@ -49,9 +46,7 @@
     </section>
 
   </main>
-
   <?php include "footer.php" ?>
-
 </body>
 
 </html>

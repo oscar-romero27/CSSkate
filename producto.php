@@ -1,3 +1,10 @@
+<?php
+    if(!isset($_GET['id'])){
+        echo '<script>';  
+        echo 'window.location.href="productos.php";';
+        echo '</script>';
+    }  
+?>
 <!doctype html>
 <html lang="es">
 
@@ -6,7 +13,7 @@
 
 </head>
 
-<body>
+<body onload="setcanvas()">
 
 
     <?php include "navbar.php" ?>

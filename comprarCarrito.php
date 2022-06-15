@@ -14,8 +14,8 @@ if (isset($_SESSION['cliente']) && isset($_SESSION['carrito'])) {
 
 }else{
 	echo '<script>';
-		echo 'alert("Error de compra");';
-		echo 'window.location.href="miCarrito.php";';
+		echo 'alert("Error de compra, inicia sesion antes de empezar a comprar");';
+		echo 'window.location.href="login.php";';
 		echo '</script>';
 }
 
@@ -24,7 +24,7 @@ function comprarCarrito($carrito, $idUser)
 	include 'conexion.php';
 
 	$sentencia = "SELECT MAX(`id_compra`) as `max` FROM `compra`;";
-	$resultado = $conexion->query($sentencia) or die("Error al comprobar usuario: " . mysqli_error($conexion));
+	$resultado = $conexion->query($sentencia) or die("Error al comprobar productos: " . mysqli_error($conexion));
 	$max = mysqli_fetch_object($resultado)->max;
 
 	foreach ($carrito as $idprod => $cant) {

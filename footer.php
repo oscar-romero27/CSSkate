@@ -1,17 +1,20 @@
 <!-- Footer-->
 <footer class="container bg-dark">
     <section class="row">
-      <span class="col-1"></span>
-      <img id="footer-img" class="col-5 img-fluid" src="img/pink bg - white silhouette (2).png">
+      <section class="col-2">
+      <canvas class="img-fluid" id="canvasarea" width="150" height="150"></canvas>
+      </section>
+     <!-- <img id="footer-img" class="col-5 img-fluid" src="img/pink bg - white silhouette (2).png"> -->
       <address class="col-6">
         <strong>CSS, Inc.</strong><br>
         Calle Francisco de Asis, 1<br>
         Murcia, ES 30009<br>
         <abbr title="Telefono">T:</abbr> (+34) 658-645-546
       </address>
+
     </section>
     <section class="row">
-      <span class="col-1"></span>
+      <span class="col-11"></span>
       <address class="col-11">
         <strong>Oscar Romero</strong><br>
         <a href="mailto:#">odromerohumber@alu.ucam.edu</a>

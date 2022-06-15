@@ -1,8 +1,6 @@
 <?php
 
-if(isset($_GET['borrar'])){
-	borrarCarrito();
-}
+
 
 function borrarCarrito(){
   unset($_SESSION['carrito']);
@@ -11,8 +9,6 @@ function borrarCarrito(){
 function getCarrito()
 {
   include 'conexion.php';
-
-  
 
   $carrito = $_SESSION['carrito'];
   $total = 0;
@@ -29,12 +25,10 @@ function getCarrito()
         </tr>
         </thead>
         <tbody>';
-  
-        
 
   foreach ($carrito as $idprod => $cant) {
     $sentencia = "SELECT nombre, detalles, precio FROM producto WHERE id_producto= " . $idprod;
-    $resultado = $conexion->query($sentencia) or die("Error al comprobar usuario: " . mysqli_error($conexion));
+    $resultado = $conexion->query($sentencia) or die("Error al comprobar producto: " . mysqli_error($conexion));
     $prod = mysqli_fetch_object($resultado);
     echo  '
     <tr>
@@ -77,7 +71,7 @@ function getCarrito()
 
   <main class="container p-0">
     <section id="miCarrito" class="p-5 bg-gradient">
-      <h2 class="text-center text-white">El carrito de <?php echo $_SESSION['cliente']->nombre ?> </h2>
+      <h2 class="text-center text-white">El carrito de <?php if(isset($_SESSION['cliente'])) { echo $_SESSION['cliente']->nombre;}else{ echo 'visitante'; } ?> </h2>
       <p class="lead text-center text-white mb-5">
         Este es el detalle de tu carrito:
       </p>
